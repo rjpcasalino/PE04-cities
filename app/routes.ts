@@ -10,7 +10,7 @@ export default [
     index("routes/home.tsx"),
     route("cities/:cityId", "routes/city.tsx"),
     route(
-      "city/:cityId/edit",
+      "cities/:cityId/edit",
       "routes/edit-city.tsx"
     ),
     route(

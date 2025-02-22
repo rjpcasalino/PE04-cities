@@ -94,7 +94,7 @@ import {
                 >
                       {city.name ? (
                         <>
-                          {city.name} {city.population}
+                          {city.name} {city.population?.toLocaleString()}
                         </>
                       ) : (
                         <i>No Name</i>

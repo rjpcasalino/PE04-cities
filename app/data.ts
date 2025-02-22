@@ -11,7 +11,7 @@ type CityMutation = {
   id?: string;
   avatar?: string;
   name?: string;
-  population?: string;
+  population?: number;
   country?: string;
   notes?: string;
   favorite?: boolean;
@@ -100,7 +100,7 @@ export async function deleteCity(id: string) {
     avatar:
       "https://sessionize.com/image/124e-400o400o2-wHVdAuNaxi8KJrgtN3ZKci.jpg",
     name: "Seattle",
-    population: "800,000",
+    population: 800000,
     country: "USA",
     notes: "none",
     favorite: true,
@@ -109,7 +109,7 @@ export async function deleteCity(id: string) {
     avatar:
       "https://sessionize.com/image/1940-400o400o2-Enh9dnYmrLYhJSTTPSw3MH.jpg",
     name: "New York City",
-    population: "1,000,000",
+    population: 1000000,
     country: "USA",
     notes: "none",
     favorite: true,

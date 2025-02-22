@@ -16,7 +16,7 @@ import { createEmptyCity } from "./data";
 
 export async function action() {
   const city = await createEmptyCity();
-  return redirect(`/city/${city.id}/edit`);
+  return redirect(`/cities/${city.id}/edit`);
 }
 
 export function HydrateFallback() {

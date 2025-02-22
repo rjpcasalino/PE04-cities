@@ -29,40 +29,46 @@ export default function EditCity({
   const navigate = useNavigate();
 
   return (
-    <Form key={city.id} id="contact-form" method="post">
+    <Form key={city.id} id="contact-form" method="post">                        
       <p>
-        <span>Name</span>
+        <span>Name:</span> 
         <input
           aria-label="Name"
           defaultValue={city.name}
           name="name"
-          placeholder="Name"
+          placeholder={city.name}
           type="text"
         />
+      </p>
+      <p>
+        <span>Population:</span> 
         <input
           aria-label="Population"
-          defaultValue={city.population}
+          defaultValue={city.population?.toLocaleString()}
           name="population"
-          placeholder="0"
-          type="text"
+          placeholder={city.population?.toLocaleString()}
+          type="number"
         />
+      </p>
+      <p>
+        <span>Country:</span> 
         <input
           aria-label="Country"
           defaultValue={city.country}
           name="country"
-          placeholder="Nowhere"
+          placeholder={city.country}
           type="text"
         />
       </p>
-
       <label>
-        <span>Notes</span>
+        <span>Notes:</span>
         <textarea
           defaultValue={city.notes}
           name="notes"
           rows={6}
         />
       </label>
+      
       <p>
         <button type="submit">Save</button>
         <button onClick={() => navigate(-1)} type="button">
@@ -70,5 +76,6 @@ export default function EditCity({
         </button>
       </p>
     </Form>
+
   );
 }
