@@ -60,6 +60,31 @@ const fakeCities = {
   },
 };
 
+async function getSeattleImage() {                                              
+  const url =                                                                   
+  'https://commons.wikimedia.org/w/index.php?search=Seattle&title=Special:MediaSearch&type=image'                                                                   
+  try {                                                                         
+    const response = await fetch(url);                                          
+    if (response.ok) {                                                          
+      const data = await response.text();                                       
+      // Use a regex to extract the image URL from the response                 
+      const imageUrlRegex = /\s*([^,]+)\.jpg/g;                            
+      let match;                                                                
+      while ((match = imageUrlRegex.exec(data)) !== null) {                     
+        const imageUrl = match[1];
+        console.debug(imageUrl)                                                            
+      }                                                                         
+    } else {
+      console.error(`Error: ${response.status} - ${response.statusText}`);
+    }
+  } catch (error) {
+    console.error('Error fetching data:', error);
+  }
+}
+
+getSeattleImage()
+
+
 ////////////////////////////////////////////////////////////////////////////////
 // Handful of helper functions to be called from route loaders and actions
 export async function getCities(query?: string | null) {
@@ -98,7 +123,7 @@ export async function deleteCity(id: string) {
 [
   {
     avatar:
-      "https://sessionize.com/image/124e-400o400o2-wHVdAuNaxi8KJrgtN3ZKci.jpg",
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/7/76/Vista_de_Seattle%2C_Washington%2C_Estados_Unidos%2C_2017-09-02%2C_DD_07-08_HDR.jpg/800px-Vista_de_Seattle%2C_Washington%2C_Estados_Unidos%2C_2017-09-02%2C_DD_07-08_HDR.jpg?20180116190821",
     name: "Seattle",
     population: 800000,
     country: "USA",
@@ -107,7 +132,7 @@ export async function deleteCity(id: string) {
   },
   {
     avatar:
-      "https://sessionize.com/image/1940-400o400o2-Enh9dnYmrLYhJSTTPSw3MH.jpg",
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/View_of_Empire_State_Building_from_Rockefeller_Center_New_York_City_dllu.jpg/640px-View_of_Empire_State_Building_from_Rockefeller_Center_New_York_City_dllu.jpg",
     name: "New York City",
     population: 1000000,
     country: "USA",

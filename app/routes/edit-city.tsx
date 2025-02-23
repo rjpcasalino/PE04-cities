@@ -59,6 +59,14 @@ export default function EditCity({
           placeholder={city.country}
           type="text"
         />
+      </p>      <p>
+        <span>Thumb:</span> 
+        <input
+          aria-label="Country"
+          defaultValue={city.avatar}
+          name="avatar"
+          type="text"
+        />
       </p>
       <label>
         <span>Notes:</span>
